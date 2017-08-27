@@ -182,7 +182,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TwM-RI-RM4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2018a540c06893f9fe1dd17635f07724d447db95397e9-DPmHJP_fw658" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-vG-sAC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-vG-sAC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入组织ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-Q6-kws">
@@ -262,7 +262,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2018a540c06893f9fe1dd17635f07724d447db95397e9-DPmHJP_fw658" width="429" height="600"/>
+        <image name="launchScreen" width="600" height="1065"/>
         <image name="message" width="42" height="42"/>
         <image name="tell" width="42" height="42"/>
     </resources>

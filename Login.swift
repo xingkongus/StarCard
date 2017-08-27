@@ -10,7 +10,7 @@ import UIKit
 
 
 class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
-    var actionButton:ActionButton!
+    
     
     var tf = "haha"
     let reachability = Reachability()!
@@ -155,20 +155,7 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         //注册点击事件
         view.addGestureRecognizer(UITapGestureRecognizer(target:self, action:#selector(Login.handleTap(_:))))
         NotificationCenter.default.addObserver(self, selector: #selector(Login.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        let twitterImage = UIImage(named: "twitter_icon.png")!
-        let plusImage = UIImage(named: "googleplus_icon.png")!
         
-        let twitter = ActionButtonItem(title: "Twitter", image: twitterImage)
-        twitter.action = { item in print("Twitter...") }
-        
-        let google = ActionButtonItem(title: "Google Plus", image: plusImage)
-        google.action = { item in print("Google Plus...") }
-        
-        actionButton = ActionButton(attachedToView: self.view, items: [twitter, google])
-        actionButton.action = { button in button.toggleMenu() }
-        actionButton.setTitle("+", forState: UIControlState())
-        
-        actionButton.backgroundColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 34.0/255.0, alpha:1.0)
     }
     
     func handleTap(_ sender: UITapGestureRecognizer) {
@@ -198,7 +185,7 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     //播放启动画面动画
     private func launchAnimation() {
         let statusBarOrientation = UIApplication.shared.statusBarOrientation
-        let img = "launchScreen"
+        let img = "launchScreen_2"
         
             //获取启动图片
             let launchImage = UIImage(named: img)

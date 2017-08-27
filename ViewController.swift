@@ -111,13 +111,13 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
         self.tableView.backgroundView = tb_img
         
         
-        let twitterImage = UIImage(named: "twitter_icon.png")!
-        let plusImage = UIImage(named: "googleplus_icon.png")!
+        let twitterImage = UIImage(named: "wallpaper.png")!
+        let plusImage = UIImage(named: "logout.png")!
         
-        let twitter = ActionButtonItem(title: "Twitter", image: twitterImage)
+        let twitter = ActionButtonItem(title: "更换壁纸", image: twitterImage)
         twitter.action = { item in print("Twitter...") }
         
-        let google = ActionButtonItem(title: "Google Plus", image: plusImage)
+        let google = ActionButtonItem(title: "退出登录", image: plusImage)
         google.action = { item in self.shareclick() }
         
         actionButton = ActionButton(attachedToView: self.view, items: [twitter, google])
