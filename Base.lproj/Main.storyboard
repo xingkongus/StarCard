@@ -211,6 +211,16 @@
                                             <action selector="bt_login:" destination="Cnf-0c-0Up" eventType="touchUpInside" id="EYZ-8I-fZ4"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StarCard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-Zi-M7P" customClass="LTMorphingLabel" customModule="星名片">
+                                        <rect key="frame" x="87.5" y="120" width="200" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="ZJo-r8-pzU"/>
+                                            <constraint firstAttribute="height" constant="100" id="zQb-rO-jzj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -219,7 +229,9 @@
                                     <constraint firstItem="C3v-Q6-kws" firstAttribute="centerY" secondItem="TwM-RI-RM4" secondAttribute="centerY" id="GV3-SB-XmX"/>
                                     <constraint firstItem="Pqv-vG-sAC" firstAttribute="leading" secondItem="TwM-RI-RM4" secondAttribute="leading" id="Gko-kj-xqc"/>
                                     <constraint firstItem="C3v-Q6-kws" firstAttribute="centerX" secondItem="TwM-RI-RM4" secondAttribute="centerX" id="Gzx-5K-Muu"/>
+                                    <constraint firstItem="BdQ-Zi-M7P" firstAttribute="centerX" secondItem="TwM-RI-RM4" secondAttribute="centerX" id="N2e-Vz-8jk"/>
                                     <constraint firstAttribute="trailing" secondItem="Pqv-vG-sAC" secondAttribute="trailing" id="fU6-qH-R4J"/>
+                                    <constraint firstItem="BdQ-Zi-M7P" firstAttribute="top" secondItem="TwM-RI-RM4" secondAttribute="top" constant="120" id="pvt-as-i1O"/>
                                     <constraint firstItem="y3f-0F-H6W" firstAttribute="centerX" secondItem="TwM-RI-RM4" secondAttribute="centerX" id="wRI-XU-nYR"/>
                                     <constraint firstItem="Pqv-vG-sAC" firstAttribute="top" secondItem="TwM-RI-RM4" secondAttribute="top" id="yu4-2y-5vp"/>
                                 </constraints>
@@ -235,6 +247,7 @@
                     </view>
                     <connections>
                         <outlet property="bt_1" destination="y3f-0F-H6W" id="VIZ-C4-SAZ"/>
+                        <outlet property="labelTitle" destination="BdQ-Zi-M7P" id="A3d-fY-h1t"/>
                         <outlet property="textfield" destination="C3v-Q6-kws" id="JaE-NT-iqV"/>
                     </connections>
                 </viewController>

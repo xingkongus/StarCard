@@ -9,7 +9,9 @@
 import UIKit
 
 
-class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
+class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate, LTMorphingLabelDelegate {
+    
+    @IBOutlet fileprivate var labelTitle: LTMorphingLabel!
     
     
     var tf = "haha"
@@ -145,6 +147,8 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         base.cacheSetString("n", value: "0")
         
         
+        
+        
         print("开始1")
         //设置圆角
         bt_1.backgroundColor = UIColor(red:0.02, green:0.48, blue:1, alpha:1)
@@ -207,7 +211,11 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
                                 CATransform3DIdentity, 1.5, 1.5, 1.0)
             }) { (finished) in
                 launchview.removeFromSuperview()
+                self.labelTitle.delegate = self
+                self.labelTitle.morphingEffect = .fall
+                self.labelTitle.text = "星名片"
             }
+        
         
     }
     
@@ -250,8 +258,7 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         
         
         
-
-        
+    
         
         
                 
@@ -280,5 +287,21 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate {
             
         
     }
+extension Login {
+    
+    func morphingDidStart(_ label: LTMorphingLabel) {
+        
+    }
+    
+    func morphingDidComplete(_ label: LTMorphingLabel) {
+        
+    }
+    
+    func morphingOnProgress(_ label: LTMorphingLabel, progress: Float) {
+        
+    }
+    
+}
+
     
 
