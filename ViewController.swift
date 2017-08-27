@@ -68,27 +68,6 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
     let DefaultRowHeight = 88
     let HeaderHeight = 48
     
-    
-    var trashItem : UIBarButtonItem {
-        return UIBarButtonItem(title:"星名片", style:.done, target: self, action: #selector(ViewController.usclick(_:)))
-    }
-    
-    
-    func trashclick(_ barItem: UIBarButtonItem) {
-        print("您按了删除")
-    }
-    
-    var shareItem : UIBarButtonItem {
-        return UIBarButtonItem(title:"退出登录", style:.done, target: self, action: #selector(ViewController.shareclick(_:)))
-    }
-    
-    
-    var spaceItem : UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    }
-    
-    
-    
       override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -139,7 +118,7 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
         twitter.action = { item in print("Twitter...") }
         
         let google = ActionButtonItem(title: "Google Plus", image: plusImage)
-        google.action = { item in print("Google Plus...") }
+        google.action = { item in self.shareclick() }
         
         actionButton = ActionButton(attachedToView: self.view, items: [twitter, google])
         actionButton.action = { button in button.toggleMenu() }
@@ -535,8 +514,8 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
     
     
     
-    func shareclick(_ barItem:UIBarButtonItem) {
-        print("您按了分享")
+    func shareclick() {
+        print("您按了退出")
         let alertController = UIAlertController(title: "系统提示",
                                                 message: "您确定要退出登录吗0.0？", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
