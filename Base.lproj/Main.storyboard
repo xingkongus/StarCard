@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="zhaozi.ttf">
+            <string>sweetly</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Quotations-->
         <scene sceneID="Uev-vv-RXB">
@@ -43,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BTY-K8-V0b" id="6q4-SK-zVp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Ij-hX-OIs">
@@ -203,7 +208,7 @@
                                             <constraint firstAttribute="height" constant="40" id="fo4-u8-iC9"/>
                                             <constraint firstAttribute="width" constant="65" id="p8Y-2j-vdq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="登录">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -217,7 +222,7 @@
                                             <constraint firstAttribute="width" constant="200" id="ZJo-r8-pzU"/>
                                             <constraint firstAttribute="height" constant="100" id="zQb-rO-jzj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                        <fontDescription key="fontDescription" name="sweetly" family="sweetly" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

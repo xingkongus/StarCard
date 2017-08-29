@@ -60,6 +60,12 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
     
     var actionButton:ActionButton!
     
+    var tb_bgname = UIImage(named: "launchScreen")
+    
+    var imagePickerController =  UIImagePickerController()
+    
+    var imagePickerController_2 = UIImagePickerController()	// 图片控件
+    
     
     
     //当缩放手势同时改变了所有单元格高度时使用uniformRowHeight
@@ -106,19 +112,26 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
         
         print("最后的")
         print(plays)
-        let tb_bgname = UIImage(named: "launchScreen")
-        let tb_img = UIImageView(image: tb_bgname)
+        var base = BaseClass()
+        var bg_name = base.cacheGetArray("bgname")
+        
+        var myName:AnyObject? = NSKeyedUnarchiver.unarchiveObject(with: bg_name as! Data) as AnyObject?
+        
+        self.tb_bgname = myName as? UIImage
+        
+        
+        let tb_img = UIImageView(image: self.tb_bgname)
         self.tableView.backgroundView = tb_img
         
         
-        let twitterImage = UIImage(named: "wallpaper.png")!
-        let plusImage = UIImage(named: "logout.png")!
+        let twitterImage = UIImage(named: "logout.png")!
+        let plusImage = UIImage(named: "wallpaper.png")!
         
-        let twitter = ActionButtonItem(title: "更换壁纸", image: twitterImage)
-        twitter.action = { item in print("Twitter...") }
+        let twitter = ActionButtonItem(title: "退出登录", image: twitterImage)
+        twitter.action = { item in self.shareclick() }
         
-        let google = ActionButtonItem(title: "退出登录", image: plusImage)
-        google.action = { item in self.shareclick() }
+        let google = ActionButtonItem(title: "更换背景", image: plusImage)
+        google.action = { item in self.replace() }
         
         actionButton = ActionButton(attachedToView: self.view, items: [twitter, google])
         actionButton.action = { button in button.toggleMenu() }
@@ -672,7 +685,65 @@ class ViewController: UIViewController,SectionHeaderViewDelegate,UISearchBarDele
         }
         sender.cancelsTouchesInView = false
     }
+    
+    func replace() {
+        present(selectorController, animated: true, completion: nil)
+    }
 
     
 }
+//MARK: 扩展图片选择和结果返回
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // MARK: 图片选择器界面
+    // MARK: 用于弹出选择的对话框界面
+    var selectorController: UIAlertController {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil)) // 取消按钮
+        controller.addAction(UIAlertAction(title: "拍照选择", style: .default) { action in
+            self.selectorSourceType(.camera)
+        }) // 拍照选择
+        controller.addAction(UIAlertAction(title: "相册选择", style: .default) { action in
+            self.selectorSourceType_2(.photoLibrary)
+        }) // 相册选择
+        return controller
+    }
+    func selectorSourceType(_ type: UIImagePickerControllerSourceType) {
+        imagePickerController.sourceType = type
+        imagePickerController.delegate = self
+        // 打开图片选择器
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    func selectorSourceType_2(_ type: UIImagePickerControllerSourceType) {
+        imagePickerController_2.sourceType = type
+        imagePickerController_2.delegate = self
+        // 打开图片选择器
+        present(imagePickerController_2, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: 当图片选择器选择了一张图片之后回调
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        dismiss(animated: true, completion: nil) // 选中图片, 关闭选择器...这里你也可以 picker.dismissViewControllerAnimated 这样调用...但是效果都是一样的...
+        
+//        Image_tou.image = info[UIImagePickerControllerOriginalImage] as? UIImage // 显示图片
+//        Image_tou.contentMode = .scaleToFill // 缩放显示, 便于查看全部的图片
+        
+        self.tb_bgname = info[UIImagePickerControllerOriginalImage] as? UIImage // 显示图片
+        var base = BaseClass()
+        
+        var Data_array:Data = NSKeyedArchiver.archivedData(withRootObject: info[UIImagePickerControllerOriginalImage])
+        
+        base.cacheSetArray("bgname", value: Data_array as AnyObject)
+        let tb_img = UIImageView(image: self.tb_bgname)
+        self.tableView.backgroundView = tb_img
+    }
+    
+    // MARK: 当点击图片选择器中的取消按钮时回调
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil) // 效果一样的...
+    }
+}
+
+
 

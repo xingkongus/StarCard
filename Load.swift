@@ -27,6 +27,9 @@ class Load: UIViewController {
     var item_arr : [NSArray] = []
     var ok  = [[]]
     
+    let bg_name = UIImage(named: "launchScreen")
+    
+    
     
     var array_StandingCommittee:[Dictionary<String, String>] = []
     
@@ -280,6 +283,8 @@ class Load: UIViewController {
                         var Data_array:Data = NSKeyedArchiver.archivedData(withRootObject: self.Root)
                         
                         base.cacheSetArray("Root", value: Data_array as AnyObject)
+                        var Data_string:Data = NSKeyedArchiver.archivedData(withRootObject: self.bg_name)
+                        base.cacheSetArray("bgname", value: Data_string as AnyObject)
                         base.cacheSetString("n", value: "1")
                         let myStoryBoard = self.storyboard
                         

@@ -214,6 +214,9 @@ class Login: UIViewController,UITextViewDelegate,UITextFieldDelegate, LTMorphing
                 self.labelTitle.delegate = self
                 self.labelTitle.morphingEffect = .fall
                 self.labelTitle.text = "星名片"
+                self.labelTitle.font = UIFont(name: "sweetly", size: 50.0)
+                let arr=UIFont.familyNames
+                print(arr)
             }
         
         
